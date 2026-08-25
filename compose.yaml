@@ -24,7 +24,7 @@ services:
       NODE_ENV: production
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-business_card}:${POSTGRES_PASSWORD:-local-development-only-password}@db:5432/${POSTGRES_DB:-business_card}?schema=public
-      CORS_ORIGIN: http://localhost:5173,http://localhost:8080
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173,http://localhost:8080}
     depends_on:
       db:
         condition: service_healthy
