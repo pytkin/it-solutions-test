@@ -1,0 +1,31 @@
+{
+  "name": "dmitry-pytkin-business-card",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.3.0",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=11.0.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter @business-card/web build && pnpm --filter @business-card/api build",
+    "dev": "pnpm --parallel --filter @business-card/web --filter @business-card/api dev",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm --filter @business-card/web typecheck && pnpm --filter @business-card/api typecheck",
+    "test": "pnpm --filter @business-card/web test && pnpm --filter @business-card/api test",
+    "codegen": "pnpm --filter @business-card/web codegen",
+    "prisma:validate": "pnpm --filter @business-card/api prisma:validate",
+    "prisma:generate": "pnpm --filter @business-card/api prisma:generate",
+    "prisma:seed": "pnpm --filter @business-card/api prisma:seed",
+    "postinstall": "pnpm --filter @business-card/api prisma:generate"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "globals": "^16.5.0",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "8.67.0"
+  }
+}
